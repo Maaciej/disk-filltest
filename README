@@ -9,7 +9,7 @@ The simple tool disk-filltest can help, together with S.M.A.R.T. monitoring, to
 check disks periodically and thus be forewarned about coming failures. The
 function of disk-filltest is simple:
 
-* Write files random-######## to the current directory until the disk is full.
+* Write files random-######## to the current directory until the disk is totally full.
 
 * Read the files again and verify the pseudo-random sequence written.
 

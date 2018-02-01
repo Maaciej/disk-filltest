@@ -11,7 +11,7 @@ What's new:
 
 Fixes
 -with so big disks there should be big files tested, but with big files (>4GB) there
-were incorect raports of write/read speeds: fixed
+were incorrect reports of write/read speeds: fixed
 -there was error in testing loop, after first detected error random block avery other test block
 was reported as wrong. Now every incorrect random block is reported
 
@@ -21,7 +21,7 @@ New features
 -Option for summary of all test with time taken and whole average speed
 -summary of errors found
 -differentiation of MB and MiB in output
--formating of output changed
+-formatting of output changed
 -colorful output available
 
 

@@ -1,34 +1,34 @@
 # disk-filltest - Simple Tool to Detect Bad Disks by Filling with Random Data #
 
-The number of hard disk produced in the last five years is huge. Of course,
-this is the same number of hard disks that will most probably fail in the next
-five years, possibly with catastrophic consequences for the particular user or
-business.
+version 0.8.0W, 20171129 by https://github.com/Maaciej, based on version 0.7.1
+see original README at https://github.com/bingmann/disk-filltest/blob/master/README
 
-The simple tool disk-filltest can help, together with S.M.A.R.T. monitoring, to
-check disks periodically and thus be forewarned about coming failures. The
-function of disk-filltest is simple:
+"W" stands for Windows, I think that the "consoleColor" procedure 
+(allows to change color of text) will not compile and will not work 
+on Linux and probably any other POSIX-compatible system.
 
-* Write files random-######## to the current directory until the disk is totally full.
+What's new:
 
-* Read the files again and verify the pseudo-random sequence written.
+Fixes
+-with so big disks there should be big files tested, but with big files (>4GB) there
+were incorect raports of write/read speeds: fixed
+-there was error in testing loop, after first detected error random block avery other test block
+was reported as wrong. Now every incorrect random block is reported
 
-* Any write or read error will be reported, either by the operating system or
-  by checking the pseudo-random sequence.
+New features
+-easy filling and later testing
+-Option to fill disk up to the last free sector
+-Option for summary of all test with time taken and whole average speed
+-summary of errors found
+-differentiation of MB and MiB in output
+-formating of output changed
+-colorful output available
 
-* Optionally, delete the random files after a successful run.
 
-The method is simple and effective, however, it of course does not verify other
-files on the disk. That is a different task, which can be solved efficiently
-using digup (a Digest Updating Tool) (http://panthema.net/2009/digup/).
-
-Another useful side-function of disk-filltest is to measure read/write speed
-while filling the disk. Slow speeds may also indicate a future failure, or just
-bad disk controlling.
-
-The program runs on Linux, Windows and probably any other POSIX-compatible
-system. The whole source code is one .c-file.
+Known problems
+-with "-z" option when test file size is bigger then biggest allowed file size of file system
+(50 GB files on FAT pendrive with biggest allowed file equal to 4GB) program detect it as
+a disk full for 1 MB block and start to fill rest with smaller test blocks 
+( example: 8 MB) - it is really slow. 
 
 See http://panthema.net/2013/disk-filltest/ for more information.
-
-Written 2013-03-27 by Timo Bingmann <tb@panthema.net>

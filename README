@@ -29,6 +29,8 @@ Known problems
 -with "-z" option when test file size is bigger then biggest allowed file size of file system
 (50 GB files on FAT pendrive with biggest allowed file equal to 4GB) program detect it as
 a disk full for 1 MB block and start to fill rest with smaller test blocks 
-( example: 8 MB) - it is really slow. 
+( example: 8 MB) - it is really slow.
+After thinking about it; normal version of writing will stop after first file in this situation, 
+so watch out parameters you set.
 
 See http://panthema.net/2013/disk-filltest/ for more information.
